@@ -82,7 +82,7 @@ export default function Footer() {
             gap: "0.2rem"
           }}>
             <div style={{ fontWeight: 700, fontSize: "1.35rem", color: "#fff", letterSpacing: "1px", textAlign: "center" }}>
-              TED<span style={{ color: "#e62b1e" }}>x</span>GADVASU Youth
+              TED<span style={{ color: "#e62b1e" }}>x</span>GADVASU 
             </div>
           </div>
         </div>
