@@ -54,37 +54,36 @@ export default function Footer() {
     }}>
       <div className="footer-inner" style={{
         width: "100%",
-        maxWidth: "1200px",
-        margin: "0 auto",
+        maxWidth: "100%",
+        padding: "0 2rem",
+        boxSizing: "border-box",
+        margin: 0,
         display: "grid",
         gridTemplateColumns: "1fr auto 1fr",
         alignItems: "center",
         gap: "0",
         flexWrap: "wrap"
       }}>
-        {/* Left: Logo, X, Reimagine Diversity */}
+        {/* Left: Logo image to match navbar size */}
         <div style={{
           display: "flex",
-          flexDirection: "column",
           alignItems: "center",
-          justifyContent: "center",
-          gap: "0.2rem",
+          justifyContent: "flex-start",
           minWidth: 160,
           margin: 0,
-          width: "100%"
+          width: "100%",
+          height: "2.5rem"
         }}>
-          <div style={{
-            width: "100%",
-            display: "flex",
-            flexDirection: "column",
-            alignItems: "center",
-            justifyContent: "center",
-            gap: "0.2rem"
-          }}>
-            <div style={{ fontWeight: 700, fontSize: "1.35rem", color: "#fff", letterSpacing: "1px", textAlign: "center" }}>
-              TED<span style={{ color: "#e62b1e" }}>x</span>GADVASU 
-            </div>
-          </div>
+          <img
+            src="/Logo.png"
+            alt="TEDxGADVASU"
+            style={{
+              height: "2.5rem",
+              width: "auto",
+              display: "block",
+              objectFit: "contain"
+            }}
+          />
         </div>
         {/* Center: Navigation links, push left for more gap with copyright */}
         <div style={{
