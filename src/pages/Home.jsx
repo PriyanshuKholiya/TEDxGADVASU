@@ -1,27 +1,9 @@
-import React, { useEffect, useRef, useState } from 'react';
+import React, { useEffect, useRef, useState, useMemo } from 'react';
 import { useNavigate } from "react-router-dom";
 import "./HomeCarousel.css";
 import HeroCounter from '../components/HeroCounter';
 import BackgroundParticles from '../components/BackgroundParticles';
-
-const speakers = [
-	{ name: "Ritika Malhotra", img: "/Speakers/RitikaMalhotra.jpg" },
-{ name: "Devanshi Kapoor", img: "/Speakers/DevanshiKapoor.jpg" },
-{ name: "Ishaan Batra", img: "/Speakers/IshaanBatra.jpg" },
-{ name: "Tanishq Roy", img: "/Speakers/TanishqRoy.jpg" },
-{ name: "Dr. Aarav Khanna", img: "/Speakers/Dr.AaravKhanna.jpg" },
-{ name: "Dr. Meera Nanda", img: "/Speakers/Dr.MeeraNanda.jpg" },
-{ name: "Dr. Pranay Kulkarni", img: "/Speakers/Dr.PranayKulkarni.jpg" },
-{ name: "Dr. Sneha Menon", img: "/Speakers/Dr.SnehaMenon.jpg" },
-{ name: "Dr. Raghav Sethi", img: "/Speakers/Dr.RaghavSethi.jpg" },
-{ name: "Ananya Chauhan", img: "/Speakers/AnanyaChauhan.jpg" },
-{ name: "Arjun Verma", img: "/Speakers/ArjunVerma.jpg" },
-{ name: "Priya Singh", img: "/Speakers/PriyaSingh.jpg" },
-{ name: "Rahul Mehta", img: "/Speakers/RahulMehta.jpg" },
-{ name: "Sanya Kapoor", img: "/Speakers/SanyaKapoor.jpg" },
-{ name: "Vikram Sharma", img: "/Speakers/VikramSharma.jpg" },
-	
-];
+import speakers from '../data/speakers';
 
 export default function Home() {
 	const navigate = useNavigate();
@@ -59,6 +41,11 @@ export default function Home() {
 		};
 		window.addEventListener('scroll', handleScroll, { passive: true });
 		return () => window.removeEventListener('scroll', handleScroll);
+	}, []);
+
+	// Repeat speakers 5x for longer, seamless carousel
+	const repeatedSpeakers = useMemo(() => {
+		return Array.from({ length: 5 }, () => speakers).flat();
 	}, []);
 
 	const handleTellMeMore = () => {
@@ -521,17 +508,17 @@ export default function Home() {
 					>
 						Our Speakers
 					</div>
-					<div className="carousel-container" style={{ background: "transparent", margin: 0 }}>
-						<div className="carousel-track">
-							{[...speakers, ...speakers].map((sp, i) => (
+						<div className="carousel-container" style={{ background: "transparent", margin: 0 }}>
+							<div className="carousel-track">
+                            {repeatedSpeakers.map((sp, i) => (
 								<div
 									className="carousel-card"
-									key={`spk-${i}`}
+										key={`spk-${i}`}
 									tabIndex={0}
 									onClick={() => navigate("/speakers")}
 									style={{ cursor: "pointer" }}
 								>
-									<img src={sp.img} alt={sp.name} />
+                                    <img src={sp.img} alt={sp.name} style={sp.objectPosition ? { objectPosition: sp.objectPosition } : undefined} />
 									<div className="carousel-overlay">
 										<span>{sp.name}</span>
 									</div>

@@ -4,28 +4,23 @@
   overflow: hidden;
   margin: 0 auto 2rem auto;
   background: transparent;
-  padding: 0;
+  /* Move breathing space here so the animated track has no side padding */
+  padding: 0.5rem 2rem;
   display: flex;
   justify-content: center;
   position: relative;
 }
+/* Remove side fade overlays */
 .carousel-container::before,
-.carousel-container::after {
-  content: '';
-  position: absolute;
-  top: 0; bottom: 0;
-  width: 80px;
-  pointer-events: none;
-  z-index: 2;
-}
-.carousel-container::before { left: 0; background: linear-gradient(90deg, rgba(250,249,247,1) 0%, rgba(250,249,247,0) 100%); }
-.carousel-container::after { right: 0; background: linear-gradient(270deg, rgba(250,249,247,1) 0%, rgba(250,249,247,0) 100%); }
+.carousel-container::after { content: none; }
 
 .carousel-track {
   display: flex;
   gap: 2.5rem;
-  padding: 0.5rem 2rem; /* breathing space for gradient masks */
-  animation: scroll-left 45s linear infinite;
+  /* No horizontal padding so one set = exactly 20% of total width */
+  padding: 0.5rem 0;
+  /* Slowed to 40% of previous speed: 9s -> 22.5s */
+  animation: scroll-left 22.5s linear infinite;
 }
 .carousel-track:hover {
   animation-play-state: paused !important;
@@ -817,9 +812,11 @@ img.home-bg-img {
   letter-spacing: 1px;
 }
 
+/* Because we render 5x the items, moving by -20% equals one full set width,
+   creating a seamless loop without a visible jump. */
 @keyframes scroll-left {
   0% { transform: translateX(0); }
-  100% { transform: translateX(-100%); }
+  100% { transform: translateX(-20%); }
 }
 
 /* Explore speakers bar scrollbar styles */

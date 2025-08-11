@@ -4,7 +4,7 @@ import './SpeakerCard.css';
 // Redesigned, self-contained flip card component
 // API kept identical: props { name, img, children } where
 // children[0] = title (front), children[1] = description (back)
-export default function SpeakerCard({ name, img, children, ...rest }) {
+export default function SpeakerCard({ name, img, objectPosition, children, ...rest }) {
   const [isFlipped, setIsFlipped] = useState(false);
   const childArr = React.Children.toArray(children);
 
@@ -26,7 +26,7 @@ export default function SpeakerCard({ name, img, children, ...rest }) {
           {/* FRONT */}
           <div className="sc-face sc-front">
             <div className="sc-image">
-              <img src={img} alt={name} />
+              <img src={img} alt={name} style={objectPosition ? { objectPosition } : undefined} />
             </div>
             <div className="sc-info">
               <div className="sc-name" title={name}>{name}</div>
