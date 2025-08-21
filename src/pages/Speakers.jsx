@@ -22,10 +22,7 @@ export default function Speakers() {
         >
           {speakers.map((sp, i) => (
             <SpeakerCard key={i} name={sp.name} img={sp.img} objectPosition={sp.objectPosition}>
-              {/* Front content: title */}
               <div className="speaker-card-title" style={{ color: '#e62b1e', fontWeight: 600, fontSize: '1.02rem' }}>{sp.title}</div>
-              {/* Back content: description */}
-              <div className="speaker-card-desc">{sp.desc || 'No description available.'}</div>
             </SpeakerCard>
           ))}
         </div>
