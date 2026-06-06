@@ -550,7 +550,8 @@ img.home-bg-img {
     max-width: 99vw;
     padding: 0.8rem 0.2rem 0.8rem 0.2rem !important;
   }
-  .speaker-card img {
+  /* Limit tiny avatar sizing to the compact speakers list only */
+  .speakers-list .speaker-card img {
     width: 60px !important;
     height: 60px !important;
   }
