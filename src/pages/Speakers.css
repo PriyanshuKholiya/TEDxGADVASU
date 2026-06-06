@@ -205,3 +205,29 @@
   font-weight: 500;
   line-height: 1.5;
 }
+
+.speakers-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2rem;
+  justify-content: center; /* This automatically centers orphaned bottom-row items */
+}
+
+/* We also need to restrict the card width since we removed Grid's minmax */
+.speaker-card {
+  width: 100%;
+  max-width: 320px; /* Matches your old grid size */
+  flex: 1 1 280px;  /* Allows cards to grow/shrink smoothly */
+  
+  /* ... keep all your other existing .speaker-card styles below ... */
+  background-color: #111;
+  color: white;
+  border-radius: 1rem;
+  overflow: hidden;
+  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+  border: 1px solid #1f2937;
+  transition: transform 0.5s ease, box-shadow 0.5s ease;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+}

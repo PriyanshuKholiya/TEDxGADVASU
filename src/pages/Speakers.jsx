@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import "./Speakers.css"; // Make sure to import the CSS file!
+import "./Speakers.css"; 
 
 export default function Speakers() {
   const [activeYear, setActiveYear] = useState(2026);
@@ -114,6 +114,7 @@ export default function Speakers() {
   { name: "Dr. Harleen Kaur", title: "CEO - Healing Urja Institute of Cosmic Sciences, Dehradun", img: "/Speakers2026/10.png", desc: "CEO of Healing Urja Institute, specializing in holistic wellness and cosmic sciences." },
   { name: "Dr. Preeti Chitkara", title: "Professor & Head PR - KIET (Deemed to be University), Delhi-NCR", img: "/Speakers2026/11.png", desc: "Professor and Head of Public Relations at KIET, specializing in strategic communication and academic leadership." },
   { name: "Dr. Shalini Mehta", title: "Director - Sai Kiran Institute of Vedic Sciences Private Limited", img: "/Speakers2026/12.png", desc: "Director at Sai Kiran Institute of Vedic Sciences, dedicated to the study, research, and promotion of Vedic knowledge." },
+  { name: "Dr. Sunita Gandhi", title: "Founder - Dignity Education Vision International (DEVI Sansthan)", img: "/Speakers2026/25.png", desc: "Founder of Dignity Education Vision International (DEVI Sansthan), dedicated to transforming education through innovative learning methodologies, literacy initiatives, and impactful social change." },
   { name: "Gayathri Vamsi", title: "Founder & CEO - Parenting Simplified", img: "/Speakers2026/2.png", desc: "Founder & CEO of Parenting Simplified, helping parents navigate child-rearing with effective and practical strategies." },
   { name: "Gurchetan Kaur", title: "Student - B.Tech Animal Biotechnology, GADVASU", img: "/Speakers2026/18.png", desc: "Student of B.Tech Animal Biotechnology at GADVASU, exploring the future of animal sciences and biotechnology." },
   { name: "Gurmukh Singh Bawa", title: "Former General Manager - Airports Authority of India | Chairman - PRSD", img: "/Speakers2026/22.png", desc: "Former General Manager at Airports Authority of India and Chairman of PRSD, bringing extensive experience in aviation and public relations." },
@@ -121,6 +122,7 @@ export default function Speakers() {
   { name: "Gurpreet Singh Kapoor", title: "Founder - BrilliED Career Technologies | Global Career Counsellor (UCLA)", img: "/Speakers2026/7.png", desc: "UCLA certified Global Career Counsellor and Founder of BrilliED, guiding students toward successful career paths." },
   { name: "Kunal Gupta", title: "Founder & CEO - Mount Talent Consulting | Rozgar.com", img: "/Speakers2026/5.png", desc: "Founder & CEO leading innovative talent acquisition and employment solutions at Mount Talent Consulting and Rozgar.com." },
   { name: "Mahira Juneja", title: "Youth Prodigy | Creative Genius | Inspiring Changemaker", img: "/Speakers2026/20.png", desc: "Youth prodigy and creative genius, inspiring change and bringing fresh perspectives to the community." },
+  { name: "Majid Misger", title: "L&D Professional", img: "/Speakers2026/24.png", desc: "Learning & Development professional focused on talent growth, workforce capability building, and organizational learning. Passionate about empowering individuals and teams through training, leadership development, and continuous improvement initiatives." },
   { name: "Maninder Singh Nayyar", title: "Founder & CEO - CEF Group", img: "/Speakers2026/9.png", desc: "Founder & CEO of CEF Group, driving business growth and impactful organizational strategies." },
   { name: "Mudit Kumar", title: "Co-Founder & Chief Operating Officer - Ideabaaz", img: "/Speakers2026/16.png", desc: "Co-Founder & COO of Ideabaaz, driving operational excellence and innovative business solutions." },
   { name: "Renu Bohra", title: "CHRO - SYSTRA India", img: "/Speakers2026/6.png", desc: "Chief Human Resources Officer at SYSTRA India, specializing in organizational development and human capital management." },
@@ -128,7 +130,7 @@ export default function Speakers() {
   { name: "Tarun Kapoor", title: "Teaching Fellow - College of Animal Biotechnology, GADVASU", img: "/Speakers2026/17.png", desc: "Teaching Fellow at the College of Animal Biotechnology, GADVASU, passionate about education and advancing biotechnology research." },
   { name: "Vibha Kapoor", title: "Founder - VIC", img: "/Speakers2026/23.png", desc: "Founder of VIC, sharing entrepreneurial insights and leadership experience." }
 ];
-
+  
   const currentSpeakers = activeYear === 2025 ? speakers2025 : speakers2026;
 
   return (
@@ -161,35 +163,43 @@ export default function Speakers() {
         
         {/* Grid */}
         <div className="speakers-grid">
-          {currentSpeakers.map((sp, i) => (
-            <div key={`${activeYear}-${i}`} className="speaker-card">
-              
-              {/* Image Container */}
-              <div className="speaker-img-container">
-                <div className="speaker-overlay" />
-                <img 
-                  src={sp.img} 
-                  alt={sp.name} 
-                  className="speaker-img" 
-                  loading="lazy"
-                />
-              </div>
-
-              {/* Info Container */}
-              <div className="speaker-info">
-                <div className="speaker-accent"></div>
-                <div style={{ marginTop: "0.5rem" }}>
-                    <h3 className="speaker-name">
-                      {sp.name}
-                    </h3>
-                    <p className="speaker-title">
-                      {sp.title}
-                    </p>
+          {currentSpeakers.map((sp, i) => {
+            // Determine if this is the very last card in the array
+            const isLastCard = i === currentSpeakers.length - 1;
+            
+            return (
+              <div 
+                key={`${activeYear}-${i}`} 
+                className={`speaker-card ${isLastCard ? "center-last-card" : ""}`}
+              >
+                
+                {/* Image Container */}
+                <div className="speaker-img-container">
+                  <div className="speaker-overlay" />
+                  <img 
+                    src={sp.img} 
+                    alt={sp.name} 
+                    className="speaker-img" 
+                    loading="lazy"
+                  />
                 </div>
+
+                {/* Info Container */}
+                <div className="speaker-info">
+                  <div className="speaker-accent"></div>
+                  <div style={{ marginTop: "0.5rem" }}>
+                      <h3 className="speaker-name">
+                        {sp.name}
+                      </h3>
+                      <p className="speaker-title">
+                        {sp.title}
+                      </p>
+                  </div>
+                </div>
+                
               </div>
-              
-            </div>
-          ))}
+            );
+          })}
         </div>
       </div>
     </div>
