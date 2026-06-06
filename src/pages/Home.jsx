@@ -27,6 +27,8 @@ const speakers2026 = [
 
   { name: "Dr. Sunita Gandhi", title: "Founder - Dignity Education Vision International (DEVI Sansthan)", img: "/Speakers2026/25.png", desc: "Founder of Dignity Education Vision International (DEVI Sansthan), dedicated to transforming education through innovative learning methodologies, literacy initiatives, and impactful social change." },
 
+  { name: "Dr. Suneeta Mukherjee", title: "Retired IAS and ICS Officer", img: "/Speakers2026/26.png", desc: "Retired IAS and ICS Officer with extensive experience in public administration, governance, and policy implementation. Dedicated to leadership, public service, and contributing to social and institutional development through decades of administrative expertise." },
+
   { name: "Gayathri Vamsi", title: "Founder & CEO - Parenting Simplified", img: "/Speakers2026/2.png", desc: "Founder & CEO of Parenting Simplified, helping parents navigate child-rearing with effective and practical strategies." },
 
   { name: "Gurchetan Kaur", title: "Student - B.Tech Animal Biotechnology, GADVASU", img: "/Speakers2026/18.png", desc: "Student of B.Tech Animal Biotechnology at GADVASU, exploring the future of animal sciences and biotechnology." },
@@ -48,6 +50,8 @@ const speakers2026 = [
   { name: "Mudit Kumar", title: "Co-Founder & Chief Operating Officer - Ideabaaz", img: "/Speakers2026/16.png", desc: "Co-Founder & COO of Ideabaaz, driving operational excellence and innovative business solutions." },
 
   { name: "Renu Bohra", title: "CHRO - SYSTRA India", img: "/Speakers2026/6.png", desc: "Chief Human Resources Officer at SYSTRA India, specializing in organizational development and human capital management." },
+
+  { name: "Shivani Joshi", title: "Cloud and AI Engineer - Microsoft", img: "/Speakers2026/27.png", desc: "Cloud and AI Engineer at Microsoft, specializing in cloud technologies, artificial intelligence solutions, and digital transformation. Passionate about leveraging emerging technologies to solve complex problems and drive innovation at scale." },
 
   { name: "Shubhaa Aditya", title: "Mindset & Manifestation Coach - Mindful Solution Studio", img: "/Speakers2026/1.png", desc: "Mindset & Manifestation Coach dedicated to helping individuals achieve their goals through mindfulness and positive psychology." },
 
